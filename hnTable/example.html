@@ -12,12 +12,12 @@
             let hnTable = new HnTable({
                 target: "#test",
                 columns: {
+                    idx: {markText: "순번", width: "120"},
                     newPlatPlc: {
                         markText: "도로명대지위치",
                         width: 300,
                         cellEvent: {
                             click: function (e, cellElement, cellVal, rowObject) {
-                                console.log(arguments);
                                 HnTable.modal({
                                     title: rowObject.bldNm,
                                     content: cellVal,
@@ -66,13 +66,19 @@
                     regstrKindCd: {markText: "대장종류코드", width: "120"},
                     regstrKindCdNm: {markText: "대장종류코드명", width: "120"}
                 },
+                pageOption: {
+                    type: "client",
+                    perIdx: "10",
+                    perPage: "5",
+                    scrolling: false
+                },
                 data: sampleData
             });
         };
     </script>
 </head>
 <body>
-    <div id="test" style="width: 100%; height: 500px;">
+    <div id="test" style="width: 100%; height: 200px;">
     </div>
 </body>
 </html>
